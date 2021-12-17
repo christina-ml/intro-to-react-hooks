@@ -1,24 +1,49 @@
 import { Component, useState } from 'react';
 import './App.css';
 
-function App() {
+// function App() {
 
-  return (
-    <div>
-      <h1>Functional Component</h1>
+//   return (
+//     <div>
+//       <h1>Functional Component</h1>
 
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
 
 class App extends Component{
   constructor(){
     super();
     this.state={
-
+      shows: [],
     }
   }
+
+  componentDidMount(){
+    this.handleFetch();
+  }
+
+  handleFetch=()=>{
+    fetch("https://pursuit-tv-show.herokuapp.com/api/shows")
+      .then(res=>res.json())
+      .then((data)=>{
+        console.log(data);
+
+        let limitShows = data.filter((show, index)=>{
+          return index < 20;
+
+          // if (index < 20){
+          //   return true;
+          // }
+        })
+
+        this.setState({
+          shows: limitShows,
+        })
+      })
+  }
+
 
   render(){
     return(
