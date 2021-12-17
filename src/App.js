@@ -3,7 +3,6 @@ import './App.css';
 
 function App() {
   const [ count, setCount ] = useState(0);
-  // const [ word, setWord ] = useState("Hello World")
   const handleIncrement=()=>{
     setCount(count + 1)
   }
