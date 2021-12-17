@@ -46,9 +46,16 @@ class App extends Component{
 
 
   render(){
+    let showsElArr = this.state.shows.map((show)=>{
+      return (
+        <div>{ show.title }</div>
+      )
+    })
+
     return(
       <div>
         <h1>Class Component</h1>
+        { showsElArr }
       </div>
     )
   }
