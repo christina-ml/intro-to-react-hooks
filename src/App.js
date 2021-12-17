@@ -2,19 +2,26 @@ import { Component, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [ count, setCount ] = useState(0);
   // const [ word, setWord ] = useState("Hello World")
+  const [ count, setCount ] = useState(0);
+  const [ amount, setAmount ] = useState(1);
+
   const handleIncrement=()=>{
-    setCount(count + 1)
+    setCount(count + amount)
   }
 
   const handleDecrement=()=>{
-    setCount(count - 1)
+    setCount(count - amount)
+  }
+
+  const handleChangeAmount=(e)=>{
+    setAmount(Number(e.target.value))
   }
 
   return (
     <div>
-      <h1>Functional Component</h1> 
+      <h1>Functional Component</h1>
+      <input value={amount} onChange={handleChangeAmount} />
       <button onClick={handleIncrement}>Increment</button>
       <button onClick={handleDecrement}>Decrement</button>
       <div>{ count }</div>
