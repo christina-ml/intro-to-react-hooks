@@ -3,14 +3,20 @@ import './App.css';
 
 function App() {
   const [ count, setCount ] = useState(0);
+  // const [ word, setWord ] = useState("Hello World")
   const handleIncrement=()=>{
     setCount(count + 1)
+  }
+
+  const handleDecrement=()=>{
+    setCount(count - 1)
   }
 
   return (
     <div>
       <h1>Functional Component</h1> 
       <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
       <div>{ count }</div>
     </div>
   );
@@ -32,11 +38,18 @@ function App() {
 //     })
 //   }
 
+//   handleDecrement=()=>{
+//     this.setState({
+//       count: this.state.count - 1,
+//     })
+//   }
+
 //   render(){
 //     return(
 //       <div>
 //         <h1>Class Component</h1>
 //         <button onClick={this.handleIncrement}>Increment</button>
+//         <button onClick={this.handleDecrement}>Decrement</button>
 //         <div>Count: {this.state.count}</div>
 //       </div>
 //     )
